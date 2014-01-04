@@ -159,7 +159,6 @@ public:
      */
     uint32_t getPageFlipCount() const;
     void dump(String8& result) const;
-    int getHardwareOrientation();
 
 #ifdef QCOM_BSP
     /* To set egl atribute, EGL_SWAP_BEHAVIOR value
@@ -208,11 +207,10 @@ private:
     /*
      * Transaction state
      */
-    status_t orientationToTransfrom(int orientation,
+    static status_t orientationToTransfrom(int orientation,
             int w, int h, Transform* tr);
 
     uint32_t mLayerStack;
-    int mHardwareOrientation;
     int mOrientation;
     // user-provided visible area of the layer stack
     Rect mViewport;
